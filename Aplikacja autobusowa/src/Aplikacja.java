@@ -9,14 +9,21 @@ public class Aplikacja {
 	private Collection<Przystanek> przystanki = new ArrayList<>();
 	private Collection<Linia> linie = new ArrayList<>();
 
-	public static void main() {
-		// TODO - implement Aplikacja.main
+	/**
+	 *
+	 * @param numerLinii: Numer linii
+	 * @param numerKierowcy: Numer kierowcy
+	 * @param numerAutobusu: Numer autobusu
+	 * @param czasStartowy: Czas startowy
+	 */
+	public Kurs utworzKurs(int numerLinii, int numerKierowcy, int numerAutobusu, LocalTime czasStartowy) {
+		// TODO - implement Aplikacja.utworzKurs
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * 
-	 * @param przystanek
+	 * @param przystanek: Przystanek autobusowy
 	 */
 	public List<Kurs> pobierzNajblizszeAutobusy(Przystanek przystanek) {
 		// TODO - implement Aplikacja.pobierzNajblizszeAutobusy
@@ -30,7 +37,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param przystanek
+	 * @param przystanek: Przystanek autobusowy
 	 */
 	public void setPrzystanek(Przystanek przystanek) {
 		// TODO - implement Aplikacja.setPrzystanek
@@ -44,7 +51,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param kierowca
+	 * @param kierowca: Kierowca autobusu
 	 */
 	public void setKierowca(Kierowca kierowca) {
 		// TODO - implement Aplikacja.setKierowca
@@ -58,7 +65,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param linia
+	 * @param linia: Linia autobusowa
 	 */
 	public void setLinia(Linia linia) {
 		// TODO - implement Aplikacja.setLinia
@@ -72,7 +79,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param autobus
+	 * @param autobus: Autobus
 	 */
 	public void setAutobus(Autobus autobus) {
 		// TODO - implement Aplikacja.setAutobus
@@ -86,7 +93,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param kurs
+	 * @param kurs: Kurs autobusowy
 	 */
 	public void setKurs(Kurs kurs) {
 		// TODO - implement Aplikacja.setKurs
@@ -95,7 +102,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param przystanek
+	 * @param przystanek: przystanek autobusowy
 	 */
 	public List<Map<Linia, LocalTime>> wygenerujRozklad(Przystanek przystanek) {
 		// TODO - implement Aplikacja.wygenerujRozklad
@@ -104,7 +111,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param numer
+	 * @param numer: numer
 	 */
 	public LocalTime wyznaczCzasWzgledemRozkladu(int numer) {
 		// TODO - implement Aplikacja.wyznaczCzasWzgledemRozkladu
@@ -113,7 +120,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param numer
+	 * @param numer: numer
 	 */
 	public boolean meldujPrzyjazd(int numer) {
 		// TODO - implement Aplikacja.meldujPrzyjazd
@@ -122,7 +129,7 @@ public class Aplikacja {
 
 	/**
 	 * 
-	 * @param numer
+	 * @param numer: numer
 	 */
 	public boolean meldujAwarie(int numer) {
 		// TODO - implement Aplikacja.meldujAwarie
@@ -134,16 +141,46 @@ public class Aplikacja {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param numerLinii
-	 * @param numerKierowcy
-	 * @param numerAutobusu
-	 * @param czasStartowy
-	 */
-	public Kurs utworzKurs(int numerLinii, int numerKierowcy, int numerAutobusu, LocalTime czasStartowy) {
-		// TODO - implement Aplikacja.utworzKurs
-		throw new UnsupportedOperationException();
+	public static void printMenu(){
+		System.out.println("MENU:\n1.Przystanki\n2.Kierowcy\n3.Linie\n4.Autobusy\n5.Kursy\nWprowadz numer:\n");
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		while(true) {
+			printMenu();
+			Integer choice = scanner.nextInt();
+
+			switch (choice) {
+				case 1: {
+					System.out.println("CASE 1");
+					break;
+				}
+				case 2: {
+					System.out.println("CASE 2");
+					break;
+				}
+				case 3: {
+					System.out.println("CASE 3");
+					break;
+				}
+				case 4: {
+					System.out.println("CASE 4");
+					break;
+				}
+				case 5: {
+					System.out.println("CASE 5");
+					break;
+				}
+				case 0:
+				{
+					return;
+				}
+			}
+
+
+
+		}
 	}
 
 }
