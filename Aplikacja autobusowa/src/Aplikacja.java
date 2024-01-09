@@ -165,46 +165,4 @@ public class Aplikacja {
             return kurs;
         } else return null;
     }
-
-
-    public static void printMenu() {
-        System.out.println("MENU:\n1.Przystanki\n2.Kierowcy\n3.Linie\n4.Autobusy\n5.Kursy\nWprowadz numer:\n");
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            printMenu();
-            Integer choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1: {
-                    System.out.println("CASE 1");
-                    break;
-                }
-                case 2: {
-                    System.out.println("CASE 2");
-                    break;
-                }
-                case 3: {
-                    System.out.println("CASE 3");
-                    break;
-                }
-                case 4: {
-                    System.out.println("CASE 4");
-                    break;
-                }
-                case 5: {
-                    System.out.println("CASE 5");
-                    break;
-                }
-                case 0: {
-                    return;
-                }
-            }
-
-
-        }
-    }
-
 }
