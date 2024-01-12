@@ -165,4 +165,9 @@ public class Aplikacja {
             return kurs;
         } else return null;
     }
+
+    public static void main(String[] args){
+	    // some code here in the main() method
+        System.out.println("Hello, World!"); 
+    }
 }
