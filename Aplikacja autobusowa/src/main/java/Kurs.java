@@ -23,6 +23,7 @@ public class Kurs {
         this.linia = linia;
         this.autobus = autobus;
         this.czasStartowy = czasStartowy;
+        this.kierowca.setDostepny(false);
     }
 
     public Przystanek meldujPrzyjazd() {
