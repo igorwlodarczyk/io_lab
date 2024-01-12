@@ -24,6 +24,8 @@ public class Kurs {
         this.autobus = autobus;
         this.czasStartowy = czasStartowy;
         this.kierowca.setDostepny(false);
+        this.autobus.setDostepny(false);
+
     }
 
     public Przystanek meldujPrzyjazd() {

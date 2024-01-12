@@ -26,4 +26,8 @@ public class Autobus {
         return this.dostepny;
     }
 
+    public void setDostepny(boolean dostepnosc) {
+        this.dostepny = dostepnosc;
+    }
+
 }

@@ -3,11 +3,11 @@ import java.util.*;
 
 public class Aplikacja {
 
-    private Collection<Kierowca> kierowcy = new ArrayList<>();
-    private Collection<Kurs> kursy = new ArrayList<>();
-    private Collection<Autobus> autobusy = new ArrayList<>();
-    private Collection<Przystanek> przystanki = new ArrayList<>();
-    private Collection<Linia> linie = new ArrayList<>();
+    private ArrayList<Kierowca> kierowcy;
+    private ArrayList<Kurs> kursy;
+    private ArrayList<Autobus> autobusy;
+    private ArrayList<Przystanek> przystanki;
+    private ArrayList<Linia> linie;
 
     public void utworzKurs(int id, Kierowca kierowca,
                            Linia linia, Autobus autobus, LocalTime czasStartowy) {
@@ -15,6 +15,16 @@ public class Aplikacja {
         if (szukajKursu(kurs) == null) {
             kursy.add(kurs);
         }
+    }
+
+    public Aplikacja(ArrayList<Kierowca> kierowcy, ArrayList<Kurs> kursy,
+                     ArrayList<Autobus> autobusy, ArrayList<Przystanek> przystanki,
+                     ArrayList<Linia> linie) {
+        this.kierowcy = kierowcy;
+        this.kursy = kursy;
+        this.autobusy = autobusy;
+        this.przystanki = przystanki;
+        this.linie = linie;
     }
 
     /**
