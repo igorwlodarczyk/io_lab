@@ -11,9 +11,10 @@ public class Przystanek {
 	 * @param wspolrzedneY
 	 */
 	public Przystanek(String nazwa, double wspolrzedneX, double wspolrzedneY) {
-		// TODO - implement Przystanek.Przystanek
-		throw new UnsupportedOperationException();
-	}
+        this.nazwa = nazwa;
+        this.wspolrzedneX = wspolrzedneX;
+        this.wspolrzedneY = wspolrzedneY;
+    }
 
 	/**
 	 * 
