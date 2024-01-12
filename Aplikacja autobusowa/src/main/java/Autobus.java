@@ -11,8 +11,10 @@ public class Autobus {
      * @param sprawny
      */
     public Autobus(int id, String model, boolean sprawny) {
-        // TODO - implement Autobus.Autobus
-        throw new UnsupportedOperationException();
+        this.id = id;
+        this.model = model;
+        this.sprawny = sprawny;
+        this.dostepny = true; 
     }
 
     public String toString() {

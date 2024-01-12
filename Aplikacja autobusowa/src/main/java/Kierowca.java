@@ -13,9 +13,11 @@ public class Kierowca {
 	 * @param dostepny
 	 */
 	public Kierowca(int id, String imie, String nazwisko, boolean dostepny) {
-		// TODO - implement Kierowca.Kierowca
-		throw new UnsupportedOperationException();
-	}
+        this.id = id;
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.dostepny = dostepny;
+    }
 
 	/**
 	 * 
