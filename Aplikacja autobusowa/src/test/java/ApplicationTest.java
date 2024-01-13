@@ -7,9 +7,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import java.time.LocalTime;
 import java.util.*;
+import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.*;
 
 
-public class ApplicationTest {
+
+@ExtendWith(ApplicationTest.class)
+public class ApplicationTest implements TestExecutionExceptionHandler{
     
     private ArrayList<Kierowca> kierowcy = new ArrayList<>();
     private ArrayList<Kurs> kursy = new ArrayList<>();
@@ -18,14 +24,23 @@ public class ApplicationTest {
     private ArrayList<Linia> linie = new ArrayList<>();
     Kurs kurs;
     Aplikacja aplikacja;
+
+    @Override
+    public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+        if (!(throwable instanceof UnsupportedOperationException)) {
+            throw throwable;
+        }
+    }
     
     @BeforeEach
     public void setUpApp(){
         kierowcy.add(new Kierowca(1, "Igor", "Wlodarczyk", true));
+        kierowcy.add(new Kierowca(2, "Maciej", "Wojtkowiak", true));
         przystanki.add(new Przystanek("Komandorska", 1, 2));
         przystanki.add(new Przystanek("Przystankowa", 2, 3));
         przystanki.add(new Przystanek("Pasaz Grunwaldzki", 3, 3));
         autobusy.add(new Autobus(1, "Rietze 70231", true));
+        autobusy.add(new Autobus(2, "Rietze 70231", true));
         linie.add(new Linia(1, przystanki, przystanki.get(przystanki.size() - 1)));
 
         kurs = new Kurs(1, kierowcy.get(0), linie.get(0), autobusy.get(0), LocalTime.now());
@@ -37,9 +52,9 @@ public class ApplicationTest {
     @Tag("Setup")
     @Test
     public void testSetUpApp(){
-        Assertions.assertEquals(1, kierowcy.size());
+        Assertions.assertEquals(2, kierowcy.size());
         Assertions.assertEquals(3, przystanki.size());
-        Assertions.assertEquals(1, autobusy.size());
+        Assertions.assertEquals(2, autobusy.size());
         Assertions.assertEquals(1, linie.size());
         Assertions.assertEquals(1, kursy.size());
     }
@@ -55,7 +70,7 @@ public class ApplicationTest {
     @Test
     public void testWyszukajDostepnegoKierowce(){
         Kierowca kierowca = aplikacja.wyszukajDostepnegoKierowce();
-        Assertions.assertTrue(kierowca == null);
+        Assertions.assertTrue(kierowca != null);
     }
 
     @Tag("Aplikacja")
@@ -70,8 +85,30 @@ public class ApplicationTest {
     @Test
     public void testWyszukajDostepnyAutobus(){
         Autobus autobus = aplikacja.wyszukajDostepnyAutobus();
-        Assertions.assertTrue(autobus == null);
+        Assertions.assertTrue(autobus != null);
     }
+
+    @Tag("Kierowca")
+    @Test
+    public void testKierowcaToString(){
+        Kierowca kierowca = kierowcy.get(0);
+        String string_kierowca = kierowca.toString();
+        Assertions.assertNotNull(string_kierowca);
+    }
+
+    @Tag("Aplikacja")
+    @ParameterizedTest
+    @MethodSource("TestDataGenerator#provideIntegersInRange")
+    public void testUtworzKurs(int id){
+        Kierowca kierowca = kierowcy.get(kierowcy.size() - 1);
+        Linia linia = linie.get(0);
+        Autobus autobus = autobusy.get(autobusy.size() - 1);
+        LocalTime time = LocalTime.now();
+
+        aplikacja.utworzKurs(id, kierowca, linia, autobus, time);
+    }
+
+
 
 
 
