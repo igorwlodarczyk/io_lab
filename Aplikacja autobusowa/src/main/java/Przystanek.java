@@ -30,4 +30,15 @@ public class Przystanek {
 		throw new UnsupportedOperationException();
 	}
 
+	public String getNazwa() {
+		return nazwa;
+	}
+
+	public double getWspolrzedneX() {
+		return wspolrzedneX;
+	}
+
+	public double getWspolrzedneY() {
+		return wspolrzedneY;
+	}
 }

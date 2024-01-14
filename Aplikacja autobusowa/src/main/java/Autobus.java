@@ -22,6 +22,18 @@ public class Autobus {
         throw new UnsupportedOperationException();
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public boolean isSprawny() {
+        return sprawny;
+    }
+
+    public boolean isDostepny() {
+        return dostepny;
+    }
+
     public boolean getDostepny() {
         return this.dostepny;
     }

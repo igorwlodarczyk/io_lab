@@ -64,13 +64,17 @@ public class ApplicationTest implements TestExecutionExceptionHandler{
     @CsvSource({"Komandorska,0.21,15.3", "Przystankowa,2,-3", "Pasaz Grunwaldzki,0,0"})
     public void testPrzystanek(String nazwa, double x, double y) {
         Przystanek przystanek = new Przystanek(nazwa, x, y);
+        Assertions.assertInstanceOf(Przystanek.class, przystanek);
+        Assertions.assertEquals(przystanek.getWspolrzedneX(), x);
+        Assertions.assertEquals(przystanek.getWspolrzedneY(), y);
+        Assertions.assertEquals(przystanek.getNazwa(), nazwa);
     }
 
     @Tag("Aplikacja")
     @Test
     public void testWyszukajDostepnegoKierowce(){
         Kierowca kierowca = aplikacja.wyszukajDostepnegoKierowce();
-        Assertions.assertTrue(kierowca != null);
+        Assertions.assertNotNull(kierowca);
     }
 
     @Tag("Aplikacja")
@@ -78,14 +82,17 @@ public class ApplicationTest implements TestExecutionExceptionHandler{
     public void testSzukajKursu(){
         Kurs func_return;
         func_return = aplikacja.szukajKursu(kurs);
-        Assertions.assertTrue(func_return != null);
+        Assertions.assertNotNull(func_return);
     }
 
     @Tag("Aplikacja")
     @Test
     public void testWyszukajDostepnyAutobus(){
         Autobus autobus = aplikacja.wyszukajDostepnyAutobus();
-        Assertions.assertTrue(autobus != null);
+        Assertions.assertNotNull(autobus);
+        Assertions.assertInstanceOf(Autobus.class, autobus);
+        Assertions.assertTrue(autobus.getDostepny());
+        Assertions.assertEquals(autobus.getModel(), "Rietze 70231");
     }
 
     @Tag("Kierowca")
@@ -93,7 +100,7 @@ public class ApplicationTest implements TestExecutionExceptionHandler{
     public void testKierowcaToString(){
         Kierowca kierowca = kierowcy.get(0);
         String string_kierowca = kierowca.toString();
-        Assertions.assertNotNull(string_kierowca);
+        Assertions.assertEquals("Igor",string_kierowca);
     }
 
     @Tag("Aplikacja")

@@ -87,9 +87,8 @@ public class Aplikacja {
         throw new UnsupportedOperationException();
     }
 
-    public List<Kurs> getKursy() {
-        // TODO - implement Aplikacja.getKursy
-        throw new UnsupportedOperationException();
+    public ArrayList<Kurs> getKursy() {
+        return kursy;
     }
 
     /**

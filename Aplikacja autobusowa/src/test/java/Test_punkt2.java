@@ -58,8 +58,8 @@ public class Test_punkt2 implements TestExecutionExceptionHandler{
         Linia linia = linie.get(0);
         Autobus autobus = autobusy.get(autobusy.size() - 1);
         LocalTime time = LocalTime.now();
-
         aplikacja.utworzKurs(id, kierowca, linia, autobus, time);
+        Assertions.assertEquals(aplikacja.getKursy().size(), 2);
     }
 
     @Tag("Aplikacja")
@@ -67,7 +67,9 @@ public class Test_punkt2 implements TestExecutionExceptionHandler{
     public void testSzukajKursu(){
         Kurs func_return;
         func_return = aplikacja.szukajKursu(kurs);
-        Assertions.assertTrue(func_return != null);
+        Assertions.assertNotNull(func_return);
+        Assertions.assertInstanceOf(Kurs.class, func_return);
+
     }
 
     @Tag("Przystanek")
@@ -75,6 +77,10 @@ public class Test_punkt2 implements TestExecutionExceptionHandler{
     @CsvSource({"Komandorska,0.21,15.3", "Przystankowa,2,-3", "Pasaz Grunwaldzki,0,0"})
     public void testPrzystanek(String nazwa, double x, double y) {
         Przystanek przystanek = new Przystanek(nazwa, x, y);
+        Assertions.assertInstanceOf(Przystanek.class, przystanek);
+        Assertions.assertEquals(przystanek.getNazwa(), nazwa);
+        Assertions.assertEquals(przystanek.getWspolrzedneX(), x);
+        Assertions.assertEquals(przystanek.getWspolrzedneY(), y);
     }
 
 }
