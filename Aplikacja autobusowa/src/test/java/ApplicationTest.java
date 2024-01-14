@@ -70,14 +70,14 @@ public class ApplicationTest implements TestExecutionExceptionHandler{
         Assertions.assertEquals(przystanek.getNazwa(), nazwa);
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaKierowcy")
     @Test
     public void testWyszukajDostepnegoKierowce(){
         Kierowca kierowca = aplikacja.wyszukajDostepnegoKierowce();
         Assertions.assertNotNull(kierowca);
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaKursu")
     @Test
     public void testSzukajKursu(){
         Kurs func_return;
@@ -85,7 +85,7 @@ public class ApplicationTest implements TestExecutionExceptionHandler{
         Assertions.assertNotNull(func_return);
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaAutobusow")
     @Test
     public void testWyszukajDostepnyAutobus(){
         Autobus autobus = aplikacja.wyszukajDostepnyAutobus();
@@ -103,7 +103,7 @@ public class ApplicationTest implements TestExecutionExceptionHandler{
         Assertions.assertEquals("Igor",string_kierowca);
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaKursu")
     @ParameterizedTest
     @MethodSource("TestDataGenerator#provideIntegersInRange")
     public void testUtworzKurs(int id){

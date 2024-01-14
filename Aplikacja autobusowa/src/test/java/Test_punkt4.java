@@ -57,24 +57,24 @@ public class Test_punkt4 implements TestExecutionExceptionHandler{
         Assertions.assertEquals(1, kursy.size());
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaMeldujAwarie")
     @Test
     public void testMeldujAwarie(){
         int iloscKursow  = aplikacja.getKursy().size();
         aplikacja.meldujAwarie(1);
         Assertions.assertEquals(iloscKursow, aplikacja.getKursy().size());
-        Assertions.assertTrue(aplikacja.meldujAwarie(2));
+        Assertions.assertFalse(aplikacja.meldujAwarie(2));
         Assertions.assertFalse(kierowcy.get(0).getDostepny());
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaMeldujAwarie")
     @Test
     public void testMeldujAwarieNieistniajecegoNumeru() {
         Assertions.assertFalse(aplikacja.meldujAwarie(999));
         Assertions.assertEquals(1, aplikacja.getKursy().size());
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaKursu")
     @ParameterizedTest
     @MethodSource("TestDataGenerator#provideIntegersInRange")
     public void testUtworzKurs(int id){
@@ -88,7 +88,7 @@ public class Test_punkt4 implements TestExecutionExceptionHandler{
         Assertions.assertEquals(ilosc_kursow+1,aplikacja.getKursy().size() );
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaAutobusow")
     @Test
     public void testWyszukajDostepnyAutobus(){
         Autobus autobus = aplikacja.wyszukajDostepnyAutobus();
@@ -98,7 +98,7 @@ public class Test_punkt4 implements TestExecutionExceptionHandler{
         Assertions.assertEquals(autobus.getModel(), "Rietze 70231");
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaAutobusow")
     @ParameterizedTest
     @MethodSource("TestDataGenerator#provideIntegersInRange")
     void testWyszukajDostepnyAutobusBezDostepnego() {
@@ -108,7 +108,7 @@ public class Test_punkt4 implements TestExecutionExceptionHandler{
         Assertions.assertNull(dostepnyAutobus);
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaKierowcy")
     @Test
     public void testWyszukajDostepnegoKierowce(){
         Kierowca kierowca = aplikacja.wyszukajDostepnegoKierowce();
@@ -116,7 +116,7 @@ public class Test_punkt4 implements TestExecutionExceptionHandler{
         Assertions.assertTrue(kierowca.getDostepny());
     }
 
-    @Tag("Aplikacja")
+    @Tag("AplikacjaObslugaKursu")
     @Test
     public void testSzukajKursu(){
         Kurs func_return;
