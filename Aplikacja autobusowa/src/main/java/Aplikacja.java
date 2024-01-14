@@ -35,9 +35,8 @@ public class Aplikacja {
         throw new UnsupportedOperationException();
     }
 
-    public List<Przystanek> getPrzystanki() {
-        // TODO - implement Aplikacja.getPrzystanki
-        throw new UnsupportedOperationException();
+    public ArrayList<Przystanek> getPrzystanki() {
+        return przystanki;
     }
 
     /**
@@ -48,9 +47,8 @@ public class Aplikacja {
         throw new UnsupportedOperationException();
     }
 
-    public List<Kierowca> getKierowcy() {
-        // TODO - implement Aplikacja.getKierowcy
-        throw new UnsupportedOperationException();
+    public ArrayList<Kierowca> getKierowcy() {
+        return kierowcy;
     }
 
     /**
@@ -140,10 +138,10 @@ public class Aplikacja {
                 kierowca = wyszukajDostepnegoKierowce();
                 autobus = wyszukajDostepnyAutobus();
                 utworzKurs(autobusy.size() + 1, kierowca, linia, autobus, LocalTime.now());
-                break;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public Kierowca wyszukajDostepnegoKierowce() {
