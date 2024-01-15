@@ -1,5 +1,7 @@
-import org.junit.platform.suite.api.*;
-import org.junit.platform.suite.api.ExcludeTags;
+import org.junit.platform.suite.api.IncludeTags;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SelectClasses;
+
 
 @Suite
 @IncludeTags({"AplikacjaMeldujAwarie", "AplikacjaObslugaKursu", "AplikacjaObslugaAutobusow", "AplikacjaObslugaKierowcy"})
