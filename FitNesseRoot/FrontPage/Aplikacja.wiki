@@ -1,0 +1,6 @@
+---
+Suite
+---
+!1 Test suite ${PAGE_NAME}
+!contents -R2 -g -p -f -h
+!path C:\Users\mkazmier\IdeaProjects\aaaa\io_lab\Aplikacja autobusowa\target\classes
