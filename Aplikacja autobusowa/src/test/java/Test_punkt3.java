@@ -11,9 +11,12 @@ import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.Order;
 
 
-
+@TestMethodOrder(OrderAnnotation.class)
 public class Test_punkt3 implements TestExecutionExceptionHandler{
     
     private ArrayList<Kierowca> kierowcy = new ArrayList<>();
@@ -52,6 +55,7 @@ public class Test_punkt3 implements TestExecutionExceptionHandler{
     @ExtendWith(Test_punkt3.class)
     @ParameterizedTest
     @MethodSource("TestDataGenerator#provideIntegersInRange")
+    @Order(1)
     public void testKurs_1(int id){
         Kierowca kierowca = aplikacja.wyszukajDostepnegoKierowce();
         Linia linia = linie.get(0);
@@ -65,6 +69,7 @@ public class Test_punkt3 implements TestExecutionExceptionHandler{
     @ExtendWith(Test_punkt3.class)
     @ParameterizedTest
     @MethodSource("TestDataGenerator#provideIntegersInRange")
+    @Order(2)
     public void testKurs_2(int id){
         Kierowca kierowca = aplikacja.wyszukajDostepnegoKierowce();
         Linia linia = linie.get(0);
