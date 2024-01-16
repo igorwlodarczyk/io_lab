@@ -173,8 +173,17 @@ public class Aplikacja {
         } else return null;
     }
 
-    public static void main(String[] args){
-	    // some code here in the main() method
-        System.out.println("Hello, World!"); 
+    public void main(String[] args) {
+        ArrayList<Przystanek> przystanki = new ArrayList<>();
+        przystanki.add(new Przystanek("Komandorska", 1, 2));
+        przystanki.add(new Przystanek("Przystankowa", 2, 3));
+        przystanki.add(new Przystanek("Pasaz Grunwaldzki", 3, 3));
+        Kierowca kierowca = new Kierowca(1, "Igor", "Wlodarczyk", true);
+        Autobus autobus = new Autobus(1, "Rietze 70231", true);
+        Linia linia = new Linia(1, przystanki, przystanki.get(przystanki.size() - 1));
+
+	    utworzKurs(1, kierowca, linia, autobus, LocalTime.now());
+
+        meldujAwarie(1);
     }
 }
