@@ -9,6 +9,10 @@ public class Aplikacja {
     private ArrayList<Przystanek> przystanki;
     private ArrayList<Linia> linie;
 
+    public Aplikacja() {
+
+    }
+
     public void utworzKurs(int id, Kierowca kierowca,
                            Linia linia, Autobus autobus, LocalTime czasStartowy) {
         Kurs kurs = new Kurs(id, kierowca, linia, autobus, czasStartowy);
