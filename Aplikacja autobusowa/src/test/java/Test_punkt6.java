@@ -102,8 +102,6 @@ public class Test_punkt6 {
     public void testMeldujAwarieBledna() {
         new Expectations() {{
             kurs1.getNumerKursu(); result = 999;
-            kierowca1.getDostepny(); result = true;
-            autobus1.getDostepny(); result = true;
         }};
 
         boolean wynik = aplikacja.meldujAwarie(1);
