@@ -1,0 +1,6 @@
+---
+Test
+---
+!|testyfitnessfixture.TestWyszukaniaKierowcy|
+|wyszukajKierowce?|
+|true|
