@@ -1,6 +1,7 @@
 package testyfitnessfixture;
+
 import fit.ColumnFixture;
-import org.example.*;
+import org.example.Kierowca;
 public class TestWyszukaniaKierowcy extends ColumnFixture {
     public boolean wyszukajKierowce() {
         Kierowca kierowca = SetUp.aplikacja.wyszukajDostepnegoKierowce();
