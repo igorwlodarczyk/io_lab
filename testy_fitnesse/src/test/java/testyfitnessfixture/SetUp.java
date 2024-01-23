@@ -28,6 +28,7 @@ public class SetUp extends Fixture{
         linie.add(new Linia(1, przystanki, przystanki.get(przystanki.size() - 1)));
 
         kurs = new Kurs(1, kierowcy.get(0), linie.get(0), autobusy.get(0), LocalTime.now());
+        kurs = new Kurs(3, kierowcy.get(1), linie.get(0), autobusy.get(1), LocalTime.now());
         kursy.add(kurs);
 
         aplikacja = new Aplikacja(kierowcy, kursy, autobusy, przystanki, linie);
