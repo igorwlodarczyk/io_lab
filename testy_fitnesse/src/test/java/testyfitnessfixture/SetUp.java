@@ -31,6 +31,5 @@ public class SetUp extends Fixture{
         kursy.add(kurs);
 
         aplikacja = new Aplikacja(kierowcy, kursy, autobusy, przystanki, linie);
-        aplikacja = new Aplikacja();
     }
 }
